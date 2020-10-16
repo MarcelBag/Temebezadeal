@@ -10,21 +10,38 @@ import {
   TouchableHighlight,
   Button,
   Alert,
+  Platform,
+  View,
+  Dimensions,
 } from "react-native";
 
 export default function App() {
-  console.log("App executed");
-  const handlePress = () => console.log("Text Pressed");
   return (
-    <SafeAreaView style={styles.container}>
-      <Button
-        color="orange"
-        title="Vente"
-        onPress={() =>
-          Alert.prompt("My title", "My message", (text) => console.log(text))
-        }
+    <View
+      style={{
+        backgroundColor: "white",
+        flex: 1,
+      }}
+    >
+      <View
+        style={{
+          backgroundColor: "dodgerblue",
+          flex: 1,
+        }}
       />
-    </SafeAreaView>
+      <View
+        style={{
+          backgroundColor: "gold",
+          flex: 1,
+        }}
+      />
+      <View
+        style={{
+          backgroundColor: "tomato",
+          flex: 1,
+        }}
+      />
+    </View>
   );
 }
 
@@ -32,7 +49,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    justifyContent: "center",
-    alignItems: "center",
+    paddingTop: Platform.OS === "android" ? 20 : 0,
   },
 });
